@@ -12,6 +12,15 @@ import java.util.Scanner;
  * @author christianmartensson
  */
 public class Uppgift1 {
+    
+    //mer generaliserad metod för valörberäkningarna
+    public static int beraknaValorAntal(int change, int val){
+            for (change = change; change >= val; change = change - val) {
+            System.out.print(val + ":-, ");
+            }
+        }
+    
+    
     public static void main(String[] args) {
         
         // Creates a new scanner object
@@ -43,14 +52,15 @@ public class Uppgift1 {
         // divided in specific bank notes
         System.out.print("Banknotes to be returned: ");
         
-        /* 
-        If the change (stored in temp) is larger than 1000, then this
-        for-loop removes 1000 from the temp variables until the remaining change
-        is less than 1000.
-        */
-        for (temp = change; temp >= 1000; temp = temp - 1000) {
-            System.out.print("1000:-, ");
-        }
+        //ersätt med metodanrop
+        beraknaValorAntal(change, 1000);
+        beraknaValorAntal(change, 500);
+        beraknaValorAntal(change, 200);
+        beraknaValorAntal(change, 100);
+        beraknaValorAntal(change, 50);
+        beraknaValorAntal(change, 20);
+        beraknaValorAntal(change, 5);
+        beraknaValorAntal(change, 1);
         
         /* 
         If the change (stored in temp) is larger than 500, then this
@@ -58,7 +68,7 @@ public class Uppgift1 {
         is less than 500. And so on for the following for-loops. 
         
         temp = temp because it doesn't run otherwise. Unknown reason. 
-        */
+        
         for (temp = temp; temp >= 500; temp = temp - 500) {
             System.out.print("500:-, ");
         }
@@ -92,6 +102,6 @@ public class Uppgift1 {
         }         
         
         System.out.println("");
+        */
     }
-    
 }
